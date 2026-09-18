@@ -50,3 +50,21 @@ E = mc^2
 ```
 
 预览通过 CDN 加载 MathJax，因此公式显示需要网络连接。编译时使用当前 Xcode 的 macOS SDK；链接时保留 10.15 SDK 兼容版本，让系统沿用 MacDown 0.7.3 的偏好设置样式和窗口切换动画。
+
+## 自定义语法扩展
+
+默认规则在仓库的 `MacDown/Resources/Extensions/latex.syntax.json`，随 App 一起打包。要在已安装的 App 中增加或覆盖规则，把 `*.syntax.json` 放到 `~/Library/Application Support/MacDown/SyntaxExtensions/`。同名文件会覆盖内置文件；将其中的 `enabled` 设为 `false` 可以关闭那组规则。修改后重新触发预览渲染即可生效。
+
+例如，新建 `~/Library/Application Support/MacDown/SyntaxExtensions/percent-math.syntax.json`：
+
+```json
+{
+  "name": "Percent math",
+  "enabled": true,
+  "rules": [
+    { "open": "%%", "close": "%%", "kind": "displayMath" }
+  ]
+}
+```
+
+之后 `%%E=mc^2%%` 会作为块级公式渲染。`open`、`close` 是普通字符串，不是正则表达式；`kind` 可取 `displayMath` 或 `inlineMath`。规则仅在“TeX-like math syntax”开启时应用，并会跳过代码围栏、缩进代码和行内代码。这里的语法扩展作用于 Markdown 渲染；MacDown 原有的 `.plugin` 是菜单动作插件，不提供渲染回调。

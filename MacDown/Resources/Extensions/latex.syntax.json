@@ -1,0 +1,8 @@
+{
+  "name": "LaTeX math delimiters",
+  "enabled": true,
+  "rules": [
+    { "open": "\\[", "close": "\\]", "kind": "displayMath" },
+    { "open": "\\(", "close": "\\)", "kind": "inlineMath" }
+  ]
+}

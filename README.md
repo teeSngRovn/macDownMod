@@ -69,6 +69,8 @@ Select the full Xcode installation if `xcode-select -p` points to Command Line T
 
 Enable **TeX-like math syntax** under Preferences → Rendering to render `\[...\]` and `\(...\)`. MathJax in the preview currently loads from a CDN.
 
+Markdown math delimiters are declared in [`MacDown/Resources/Extensions/latex.syntax.json`](MacDown/Resources/Extensions/latex.syntax.json). To add or override rules without rebuilding, place a `*.syntax.json` file in `~/Library/Application Support/MacDown/SyntaxExtensions/`; a file with the same name overrides the bundled one. See the [Chinese build guide](BUILDING.zh-CN.md#自定义语法扩展) for the format. These syntax extensions run during Markdown rendering; MacDown's existing `.plugin` bundles are menu actions.
+
 The MacDown target compiles with the installed macOS SDK but links with a 10.15 SDK compatibility version. AppKit uses that version to retain the 0.7.3 preferences controls, toolbar appearance, and pane resize animation on newer macOS releases. If you remove the compatibility linker flag, review the preferences layout and appearance again.
 
 ## Discussion

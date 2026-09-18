@@ -18,6 +18,7 @@
 #import "MPUtilities.h"
 #import "MPAsset.h"
 #import "MPPreferences.h"
+#import "MPSyntaxExtensions.h"
 
 // Warning: If the version of MathJax is ever updated, please check the status
 // of https://github.com/mathjax/MathJax/issues/548. If the fix has been merged
@@ -97,7 +98,9 @@ NS_INLINE NSString *MPHTMLFromMarkdown(
     NSString *text, int flags, BOOL smartypants, NSString *frontMatter,
     hoedown_renderer *htmlRenderer, hoedown_renderer *tocRenderer)
 {
-    NSData *inputData = [text dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *prepared = [MPSyntaxExtensions markdownByApplyingRulesToMarkdown:text
+                                                                   mathEnabled:(flags & HOEDOWN_EXT_MATH) != 0];
+    NSData *inputData = [prepared dataUsingEncoding:NSUTF8StringEncoding];
     hoedown_document *document = hoedown_document_new(
         htmlRenderer, flags, kMPRendererNestingLevel);
     hoedown_buffer *ob = hoedown_buffer_new(64);

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F002A23195B3DAE008B8D93 /* MPRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F002A22195B3DAE008B8D93 /* MPRenderer.m */; };
+		A1B2C3D4E5F60718293A4B51 /* MPSyntaxExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B50 /* MPSyntaxExtensions.m */; };
 		1F0D9D65194AC7CF008E1856 /* NSString+Lookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D5F194AC7CF008E1856 /* NSString+Lookup.m */; };
 		1F0D9D66194AC7CF008E1856 /* NSTextView+Autocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D61194AC7CF008E1856 /* NSTextView+Autocomplete.m */; };
 		1F0D9D67194AC7CF008E1856 /* MPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D9D64194AC7CF008E1856 /* MPUtilities.m */; };
@@ -418,6 +419,8 @@
 		1FB813AB2099A228004EC5D7 /* et */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = et; path = Localization/et.lproj/MPDocument.strings; sourceTree = "<group>"; };
 		1FBBD4C9194CA35900BB3C88 /* hoedown_html_patch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hoedown_html_patch.h; sourceTree = "<group>"; };
 		1FBBD4CA194CA36500BB3C88 /* hoedown_html_patch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hoedown_html_patch.c; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B4F /* MPSyntaxExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPSyntaxExtensions.h; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B50 /* MPSyntaxExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPSyntaxExtensions.m; sourceTree = "<group>"; };
 		1FBD430D2099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FBD430E2099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MPExportPanelAccessoryViewController.strings; sourceTree = "<group>"; };
 		1FBD430F2099A1A200B348CD /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localization/tr.lproj/MainMenu.strings; sourceTree = "<group>"; };
@@ -560,6 +563,8 @@
 				3D175F0F1974282400A5EFE8 /* WebView+WebViewPrivateHeaders.h */,
 				1FBBD4C9194CA35900BB3C88 /* hoedown_html_patch.h */,
 				1FBBD4CA194CA36500BB3C88 /* hoedown_html_patch.c */,
+				A1B2C3D4E5F60718293A4B4F /* MPSyntaxExtensions.h */,
+				A1B2C3D4E5F60718293A4B50 /* MPSyntaxExtensions.m */,
 			);
 			name = Extension;
 			path = Code/Extension;
@@ -1206,6 +1211,7 @@
 				1F9A14ED194EEE9900D1C6A9 /* MPMainController.m in Sources */,
 				1F002A23195B3DAE008B8D93 /* MPRenderer.m in Sources */,
 				1FBBD4CB194CA36500BB3C88 /* hoedown_html_patch.c in Sources */,
+				A1B2C3D4E5F60718293A4B51 /* MPSyntaxExtensions.m in Sources */,
 				1F8A8364195346B200B6BF69 /* pmh_styleparser.c in Sources */,
 				1F0D9D93194AC852008E1856 /* MPDocument.m in Sources */,
 				1F96BD801E584A03005E0456 /* MPHomebrewSubprocessController.m in Sources */,
