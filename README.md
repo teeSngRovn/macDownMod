@@ -1,5 +1,7 @@
 # MacDown
 
+This fork builds MacDown 0.7.3 with support for standard `\[...\]` display math and `\(...\)` inline math, and retains the release version's Preferences appearance and pane animation on recent macOS versions. [中文编译说明](BUILDING.zh-CN.md).
+
 [![](https://img.shields.io/github/release/MacDownApp/macdown.svg)](http://macdown.uranusjr.com/download/latest/)
 ![Total downloads](https://img.shields.io/github/downloads/MacDownApp/macdown/latest/total.svg)
 [![Build Status](https://travis-ci.org/MacDownApp/macdown.svg?branch=master)](https://travis-ci.org/MacDownApp/macdown)
@@ -44,35 +46,29 @@ The following editor themes and CSS files are extracted from [Mou](http://mouapp
 
 ### Requirements
 
-If you wish to build MacDown yourself, you will need the following components/tools:
-
-* OS X SDK (10.8 or later)
-* Git
-* [Bundler](http://bundler.io)
-
-You may also need to install Xcode’s command line tools with the following command:
-
-    xcode-select --install
-
-> Note: Due to multiple upstream bugs, Xcode may fail to build certain dependencies if you use the CocoaPods with versions lower than 0.39. Please upgrade CocoaPods, or use Bundler to execute a local version (as suggested above) instead.
-
-An appropriate SDK should be bundled with Xcode 5 or later versions.
+Use a Mac with full Xcode selected by `xcode-select`, Git, and Ruby with Bundler. This build was verified on macOS 26.6.2 with Xcode 27.0, Ruby 4.0.7, and Bundler 4.0.20. The committed `Gemfile.lock` pins the Ruby gems, and `Podfile.lock` pins the CocoaPods dependencies. Internet access is needed for the first dependency install and for MathJax rendering in the preview.
 
 ### Environment Setup
 
-After cloning the repository, run the following commands inside the repository root (directory containing this `README.md` file):
+After configuring SSH access to the private repository, run:
 
-    git submodule init
-    git submodule update
-    bundle install
-    bundle exec pod install
+```sh
+git clone --recurse-submodules git@github.com:teeSngRovn/macDownMod.git
+cd macDownMod
+brew install ruby
+export PATH="$(brew --prefix ruby)/bin:$PATH"
+gem install bundler -v 4.0.20
+bundle _4.0.20_ install
+bundle exec pod install
+xcodebuild -workspace MacDown.xcworkspace -scheme MacDown -configuration Debug -derivedDataPath "$PWD/Build/DerivedData" CODE_SIGNING_ALLOWED=NO build
+open Build/DerivedData/Build/Products/Debug/MacDown.app
+```
 
-and open `MacDown.xcworkspace` in Xcode. The first command initialises the dependency submodule(s) used in MacDown; the second one installs dependencies managed by CocoaPods.
+Select the full Xcode installation if `xcode-select -p` points to Command Line Tools (for the standard installation: `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`). To build in Xcode, open `MacDown.xcworkspace`, select the `MacDown` scheme, and run it. Always use the workspace, since the project depends on CocoaPods. If the repository was cloned without `--recurse-submodules`, run `git submodule update --init --recursive` before building.
 
-Refer to the official guides of Git and CocoaPods if you need more instructions. If you run into build issues later on, try running the following commands to update dependencies:
+Enable **TeX-like math syntax** under Preferences → Rendering to render `\[...\]` and `\(...\)`. MathJax in the preview currently loads from a CDN.
 
-    git submodule update
-    bundle exec pod install
+The MacDown target compiles with the installed macOS SDK but links with a 10.15 SDK compatibility version. AppKit uses that version to retain the 0.7.3 preferences controls, toolbar appearance, and pane resize animation on newer macOS releases. If you remove the compatibility linker flag, review the preferences layout and appearance again.
 
 ## Discussion
 
@@ -87,4 +83,3 @@ MacDown depends a lot on other open source projects, such as [Hoedown](https://g
 ## Tipping
 
 If you find MacDown suitable for your needs, please consider [giving me a tip through PayPal](http://macdown.uranusjr.com/faq/#donation). Or, if you prefer to buy me a drink *personally* instead, just [send me a tweet](https://twitter.com/uranusjr) when you visit [Taipei, Taiwan](http://en.wikipedia.org/wiki/Taipei), where I live. I look forward to meeting you!
-
