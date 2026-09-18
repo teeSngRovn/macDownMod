@@ -9,7 +9,7 @@ import zipfile
 
 from xml.etree import ElementTree
 
-from macdown_utils import ROOT_DIR, XCODEBUILD, execute
+from macDownMod_utils import ROOT_DIR, XCODEBUILD, execute
 
 
 try:
@@ -22,8 +22,8 @@ OPENSSL = '/usr/bin/openssl'
 OSASCRIPT = '/usr/bin/osascript'
 
 BUILD_DIR = os.path.join(ROOT_DIR, 'Build')
-APP_NAME = 'MacDown.app'
-ZIP_NAME = 'MacDown.app.zip'
+APP_NAME = 'macDownMod.app'
+ZIP_NAME = 'macDownMod.app.zip'
 
 TERM_ENCODING = 'utf-8'
 
@@ -67,8 +67,8 @@ def main(argv):
     if not os.path.exists(BUILD_DIR):
         os.mkdir(BUILD_DIR)
     execute(
-        XCODEBUILD, 'clean', '-workspace', 'MacDown.xcworkspace',
-        '-scheme', 'MacDown',
+        XCODEBUILD, 'clean', '-workspace', 'macDownMod.xcworkspace',
+        '-scheme', 'macDownMod',
     )
 
     print('Running external scripts...')
@@ -78,8 +78,8 @@ def main(argv):
     print('Building application archive...')
     os.chdir(BUILD_DIR)
     output = execute(
-        XCODEBUILD, 'archive', '-workspace', '../MacDown.xcworkspace',
-        '-scheme', 'MacDown',
+        XCODEBUILD, 'archive', '-workspace', '../macDownMod.xcworkspace',
+        '-scheme', 'macDownMod',
     )
     if isinstance(output, bytes):
         output = output.decode(TERM_ENCODING)

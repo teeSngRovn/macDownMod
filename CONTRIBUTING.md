@@ -1,4 +1,4 @@
-# Contributing to MacDown
+# Contributing to macDownMod
 
 ## Coding Style
 
@@ -19,9 +19,8 @@ Exception: If a URL in a comment is too long, it can go over the limit. This hap
 
 * The commit hash in GitHub commit page’s URL can be shortened. The followings are all equivalent:
 
-    `https://github.com/uranusjr/macdown/commit/1612abb9dbd24113751958777a49cffc6767989c`
-    `https://github.com/uranusjr/macdown/commit/1612abb9dbd24`
-    `https://github.com/uranusjr/macdown/commit/1612abb`
+    `https://github.com/teeSngRovn/macDownMod/commit/<full-hash>`
+    `https://github.com/teeSngRovn/macDownMod/commit/<short-hash>`
 
 #### Code Blocks
 
@@ -92,7 +91,7 @@ Try to ensure that there’s a trailing newline in the end of a file. This is no
 
 ## Version Control
 
-MacDown uses Git for source control, and is hosted on GitHub.
+macDownMod uses Git for source control and is hosted in a private GitHub repository.
 
 ### Commit Messages
 
