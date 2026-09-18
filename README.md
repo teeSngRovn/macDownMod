@@ -60,11 +60,12 @@ export PATH="$(brew --prefix ruby)/bin:$PATH"
 gem install bundler -v 4.0.20
 bundle _4.0.20_ install
 bundle exec pod install
+make -C Dependency/peg-markdown-highlight
 xcodebuild -workspace MacDown.xcworkspace -scheme MacDown -configuration Debug -derivedDataPath "$PWD/Build/DerivedData" CODE_SIGNING_ALLOWED=NO build
 open Build/DerivedData/Build/Products/Debug/MacDown.app
 ```
 
-Select the full Xcode installation if `xcode-select -p` points to Command Line Tools (for the standard installation: `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`). To build in Xcode, open `MacDown.xcworkspace`, select the `MacDown` scheme, and run it. Always use the workspace, since the project depends on CocoaPods. If the repository was cloned without `--recurse-submodules`, run `git submodule update --init --recursive` before building.
+Select the full Xcode installation if `xcode-select -p` points to Command Line Tools (for the standard installation: `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`). The `make` step generates the editor's Markdown parser source, which Xcode requires before its first build. To build in Xcode, complete the steps through `make`, open `MacDown.xcworkspace`, select the `MacDown` scheme, and run it. Always use the workspace, since the project depends on CocoaPods. If the repository was cloned without `--recurse-submodules`, run `git submodule update --init --recursive` before building.
 
 Enable **TeX-like math syntax** under Preferences → Rendering to render `\[...\]` and `\(...\)`. MathJax in the preview currently loads from a CDN.
 

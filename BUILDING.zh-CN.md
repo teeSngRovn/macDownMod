@@ -28,13 +28,14 @@ export PATH="$(brew --prefix ruby)/bin:$PATH"
 gem install bundler -v 4.0.20
 bundle _4.0.20_ install
 bundle exec pod install
+make -C Dependency/peg-markdown-highlight
 xcodebuild -workspace MacDown.xcworkspace -scheme MacDown -configuration Debug -derivedDataPath "$PWD/Build/DerivedData" CODE_SIGNING_ALLOWED=NO build
 open Build/DerivedData/Build/Products/Debug/MacDown.app
 ```
 
-`CODE_SIGNING_ALLOWED=NO` 用于本机调试构建，无须开发者签名。编译产物位于 `Build/DerivedData/Build/Products/Debug/MacDown.app`。如果已经装好合适的 Ruby 和 Bundler，可跳过安装命令；如果克隆时没带子模块，先执行 `git submodule update --init --recursive`。
+`make` 会生成编辑器的 Markdown 解析器源码；首次编译前必须执行，否则 Xcode 会报缺少 `pmh_parser.c`。`CODE_SIGNING_ALLOWED=NO` 用于本机调试构建，无须开发者签名。编译产物位于 `Build/DerivedData/Build/Products/Debug/MacDown.app`。如果已经装好合适的 Ruby 和 Bundler，可跳过安装命令；如果克隆时没带子模块，先执行 `git submodule update --init --recursive`。
 
-也可以执行完 `bundle exec pod install` 后，用 Xcode 打开 `MacDown.xcworkspace`，选 `MacDown` scheme 运行。要打开的是 workspace，因为依赖由 CocoaPods 提供。
+也可以执行完 `make` 后，用 Xcode 打开 `MacDown.xcworkspace`，选 `MacDown` scheme 运行。要打开的是 workspace，因为依赖由 CocoaPods 提供。
 
 ## 公式与外观
 
