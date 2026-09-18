@@ -13,6 +13,8 @@ macDownMod 是一款 macOS Markdown 编辑器。当前版本以开源 0.7.3 代�
 
 ## 自定义公式语法
 
+手动添加、覆盖和排查规则的完整步骤见 [语法扩展规则手册](SYNTAX_EXTENSIONS.zh-CN.md)。
+
 新建 `~/Library/Application Support/macDownMod/SyntaxExtensions/percent-math.syntax.json`：
 
 ```json

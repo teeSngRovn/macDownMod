@@ -5,7 +5,7 @@ macDownMod is a macOS Markdown editor based on an open source 0.7.3 codebase. It
 ## Features in this fork
 
 - `\[...\]` display math and `\(...\)` inline math when **TeX-like math syntax** is enabled in Preferences → Rendering.
-- Literal math delimiter rules in [`latex.syntax.json`](macDownMod/Resources/Extensions/latex.syntax.json). Add or override `*.syntax.json` files in `~/Library/Application Support/macDownMod/SyntaxExtensions/` without rebuilding; see the [Chinese guide](BUILDING.zh-CN.md#自定义语法扩展).
+- Literal math delimiter rules in [`latex.syntax.json`](macDownMod/Resources/Extensions/latex.syntax.json). Add or override `*.syntax.json` files in `~/Library/Application Support/macDownMod/SyntaxExtensions/` without rebuilding; see the [rule guide](SYNTAX_EXTENSIONS.zh-CN.md).
 - A separate app identity, `macDownMod.app`, command line utility `macDownMod`, and Xcode workspace and scheme named `macDownMod`.
 - No update feed pointing to a different application's releases.
 

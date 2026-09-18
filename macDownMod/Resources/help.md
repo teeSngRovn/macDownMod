@@ -31,7 +31,7 @@ E = mc^2
 
 ## 自定义语法
 
-内置规则在应用资源的 `Extensions/latex.syntax.json`。将 `*.syntax.json` 放到 `~/Library/Application Support/macDownMod/SyntaxExtensions/` 可增加或覆盖规则；修改后重新触发预览渲染。规则格式及示例见仓库的 `README.zh-CN.md`。
+内置规则在应用资源的 `Extensions/latex.syntax.json`。将 `*.syntax.json` 放到 `~/Library/Application Support/macDownMod/SyntaxExtensions/` 可增加或覆盖规则；修改后重新触发预览渲染。规则格式、覆盖方式及排错步骤见仓库的 `SYNTAX_EXTENSIONS.zh-CN.md`。
 
 代码围栏、缩进代码和行内代码中的公式定界符不会被语法扩展改写。
 

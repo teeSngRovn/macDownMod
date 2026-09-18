@@ -55,6 +55,8 @@ E = mc^2
 
 ## 自定义语法扩展
 
+详细的字段说明、规则优先级、覆盖方式和排错方法见 [语法扩展规则手册](SYNTAX_EXTENSIONS.zh-CN.md)。
+
 默认规则在仓库的 `macDownMod/Resources/Extensions/latex.syntax.json`，随 App 一起打包。要在已安装的 App 中增加或覆盖规则，把 `*.syntax.json` 放到 `~/Library/Application Support/macDownMod/SyntaxExtensions/`。同名文件会覆盖内置文件；将其中的 `enabled` 设为 `false` 可以关闭那组规则。修改后重新触发预览渲染即可生效。
 
 例如，新建 `~/Library/Application Support/macDownMod/SyntaxExtensions/percent-math.syntax.json`：
